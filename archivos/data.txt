@@ -122,6 +122,9 @@ candidato
 deporte
 recipiente
 diarios
+andres
+sarah
+mariann
 fotografía
 ave
 hierro
