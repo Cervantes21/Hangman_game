@@ -1,4 +1,5 @@
 import random
+import os
 
 def random_word():
     word = []
@@ -22,11 +23,32 @@ def replace_letters(word, unknown_word, letter):
     return unknown_word
 
 def hangman():
+    print("""
+                                                
+                 _.u[[/;:,.         .odMMMMMM'
+              .o888UU[[[/;:-.  .o@P^    MMM^    
+             oN88888UU[[[/;::-.        dP^
+            dNMMNN888UU[[[/;:--.   .o@P^
+           ,MMMMMMN888UU[[/;::-. o@^        
+           NNMMMNN888UU[[[/~.o@P^    ██╗  ██╗ █████╗ ███╗   ██╗ ██████╗ ███╗   ███╗ █████╗ ███╗   ██╗
+           888888888UU[[[/o@^-..     ██║  ██║██╔══██╗████╗  ██║██╔════╝ ████╗ ████║██╔══██╗████╗  ██║
+          oI8888UU[[[/o@P^:--..      ███████║███████║██╔██╗ ██║██║  ███╗██╔████╔██║███████║██╔██╗ ██║
+       .@^  YUU[[[/o@^;::---..       ██╔══██║██╔══██║██║╚██╗██║██║   ██║██║╚██╔╝██║██╔══██║██║╚██╗██║
+     oMP     ^/o@P^;:::---..         ██║  ██║██║  ██║██║ ╚████║╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║
+  .dMMM    .o@^ ^;::---...           ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝
+ dMMMMMMM@^`       `^^^^                            ~ PRESS ENTER TO CONTINUE ~
+ YMMMUP^                                                                             By: Cervantes21~
+$
+                                                       
+          """)
+    input()
+    os.system("clear")
     word, unknown_word = saved_word()
     fails = 0
     while unknown_word != word and fails <= 10:
         print("Palabra: " + unknown_word)
         guess = input("Ingresa una letra: ")
+        os.system("clear")
         if guess in word:
             unknown_word = replace_letters(word, unknown_word, guess)
         else:
