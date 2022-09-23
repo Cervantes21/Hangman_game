@@ -1,6 +1,64 @@
 import random
 import os
 
+draw = ['''
+        
+   +---+
+   |   |
+       |
+       |
+       |
+       |
+ =========''', '''
+
+   +---+
+   |   |
+   O   |
+       |
+       |
+       |
+ =========''', '''
+
+   +---+
+   |   |
+   O   |
+   |   |
+       |
+       |
+ =========''', '''
+
+   +---+
+   |   |
+   O   |
+  /|   |
+       |
+       |
+ =========''', '''
+ 
+   +---+
+   |   |
+   O   |
+  /|\  |
+       |
+       |
+ =========''', '''
+
+   +---+
+   |   |
+   O   |
+  /|\  |
+  /    |
+       |
+ =========''', '''
+
+   +---+
+   |   |
+   O   |
+  /|\  |
+  / \  |
+       |
+ =========''']
+
 def random_word():
     word = []
     with open("./archivos/data.txt", "r") as f:
@@ -45,18 +103,54 @@ $
     os.system("clear")
     word, unknown_word = saved_word()
     fails = 0
-    while unknown_word != word and fails <= 10:
+    print(draw[fails])
+    while unknown_word != word and fails <= 5:
         print("Palabra: " + unknown_word)
         guess = input("Ingresa una letra: ")
         os.system("clear")
         if guess in word:
             unknown_word = replace_letters(word, unknown_word, guess)
+            print(draw[fails])
         else:
             fails += 1
+            print(draw[fails])
+            
     if unknown_word == word:
-        print("Adivinaste la palabra " + unknown_word)
+        print("         Felicidades!!!, adivinaste la palabra: " + unknown_word)
+        print("""                    
+    ██╗   ██╗ ██████╗ ██╗   ██╗    ██╗    ██╗██╗███╗   ██╗██╗██╗
+    ╚██╗ ██╔╝██╔═══██╗██║   ██║    ██║    ██║██║████╗  ██║██║██║
+     ╚████╔╝ ██║   ██║██║   ██║    ██║ █╗ ██║██║██╔██╗ ██║██║██║
+      ╚██╔╝  ██║   ██║██║   ██║    ██║███╗██║██║██║╚██╗██║╚═╝╚═╝
+       ██║   ╚██████╔╝╚██████╔╝    ╚███╔███╔╝██║██║ ╚████║██╗██╗
+       ╚═╝    ╚═════╝  ╚═════╝      ╚══╝╚══╝ ╚═╝╚═╝  ╚═══╝╚═╝╚═╝
+                                                by: Cervantes21~
+            """)
     else:
-        print("Lo siento, la palabra era " + word)
+        print("""
+              
+                     :::!~!!!!!:.
+                  .xUHWH!! !!?M88WHX:.
+                .X*#M@$!!  !X!M$$$$$$WWx:.
+               :!!!!!!?H! :!$!$$$$$$$$$$8X:
+              !!~  ~:~!! :~!$!#$$$$$$$$$$8X:
+             :!~::!H!<   ~.U$X!?R$$$$$$$$MM!
+             ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!
+               !:~~~ .:!M"T#$$$$WX??#MRRMMM!
+               ~?WuxiW*`   `"#$$$$8!!!!??!!!
+             :X- M$$$$       `"T#$T~!8$WUXU~
+            :%`  ~#$$$m:        ~!~ ?$$$$$$
+AndyDollin:!`.-   ~T$$$$8xx.  .xWW- ~""##*"
+.....   -~~:<` !    ~?T#$$@@W@*?$$      /`
+W$@@M!!! .!~~ !!     .:XUW$W!~ `"~:    :
+#"~~`.:x%`!!  !H:   !WM$$$$Ti.: .!WUn+!`
+:::~:!!`:X~ .: ?H.!u "$$$B$$$!W:U!T$$M~
+.~~   :X@!.-~   ?@WTWo "*$$$W$TH$! `
+Wi.~!X$?!-~    : ?$$$B$Wu "**$RM!
+$R@i.~~ !     :   ~$$$$$B$$en:``
+?MXT@Wx.~    :     ~"##*$$$$M~
+              """)
+        print("         LO SIENTO, LA PALABRA ERA: " + word)
          
 
 def run ():
