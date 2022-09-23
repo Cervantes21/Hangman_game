@@ -2,7 +2,7 @@ import random
 
 def random_word():
     word = []
-    with open("/home/andydollin21/Documentos/hangman_game/archivos/data.txt", "r") as f:
+    with open("./archivos/data.txt", "r") as f:
         for line in f:
             word.append(line.rstrip())
     return random.choice(word)
